@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use Illuminate\Http\Request;
+use App\Models\{Event, Ticket};
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateTicketRequest;
-use App\Models\Event;
-use App\Models\Ticket;
 use Illuminate\Auth\Access\AuthorizationException;
-use Illuminate\Http\Request;
 
 class TicketController extends Controller
 {
@@ -15,7 +14,7 @@ class TicketController extends Controller
     public function index(Event $event)
     {
         return response()->json([
-            'data' => $event->tickets()
+            'data' => $event->tickets
         ], 200);
     }
 
@@ -39,7 +38,6 @@ class TicketController extends Controller
             'data' => 'ticket updated successfully'
         ], 200);
     }
-
 
     public function destroy(Event $event, Ticket $ticket)
     {

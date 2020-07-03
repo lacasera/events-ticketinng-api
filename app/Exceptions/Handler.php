@@ -16,7 +16,7 @@ class Handler extends ExceptionHandler
      * @var array
      */
     protected $dontReport = [
-        //
+        UnableToVerifyPaymentException::class
     ];
 
     /**
@@ -72,8 +72,11 @@ class Handler extends ExceptionHandler
             return response()->json([
                 'error' => 'route not found'
             ], 404);
+        } elseif (get_class($exception) === UnableToVerifyPaymentException::class) {
+             return response()->json([
+                'error' => $exception->getMessage()
+            ], 400);
         }
-
         else  {
             if(app()->environment('production')) {
                 return response()->json([

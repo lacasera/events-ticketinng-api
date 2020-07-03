@@ -2,14 +2,10 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Domain\Services\Events\EventService;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\CreateEventRequest;
-use Illuminate\Http\Request;
-
-use App\Events\EventCreated;
-use App\Http\Resources\EventCollection;
 use App\Models\Event;
+use App\Http\Controllers\Controller;
+use App\Http\Resources\EventCollection;
+use App\Domain\Services\Events\EventService;
 
 class EventController extends Controller
 {

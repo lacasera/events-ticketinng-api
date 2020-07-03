@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Events\EventCreated;
+use App\Events\PaymentConfirmed;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -21,6 +22,11 @@ class EventServiceProvider extends ServiceProvider
         ],
         EventCreated::class => [
             '\App\Listeners\SaveEventImages'
+        ],
+        PaymentConfirmed::class => [
+            '\App\Listeners\LogTransaction',
+            '\App\Listeners\GenerateTicket',
+            '\App\Listeners\SendTicketInvoice'
         ]
     ];
 

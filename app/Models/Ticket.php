@@ -2,9 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Ticket extends Model
+class Ticket extends BaseModel
 {
     protected $guarded = [ 'id' ];
 
@@ -26,5 +24,10 @@ class Ticket extends Model
     public function getCreatedAttribute()
     {
         return $this->created_at->diffForHumans();
+    }
+
+    public function paymentAccounts()
+    {
+        return $this->hasMany(PaymentAccount::class);
     }
 }

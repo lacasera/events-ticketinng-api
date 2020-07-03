@@ -19,8 +19,9 @@ class EventService
         logger($data);
     }
 
-    public function all($limit)
+    public function all($limit = 50)
     {
+       // return ['mess' => 'hellpo'];
         return $this->eventRepository->all($limit);
     }
 }

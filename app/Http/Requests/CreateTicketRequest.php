@@ -18,7 +18,8 @@ class CreateTicketRequest extends FormRequest
             'name' => 'string|required',
             'description' => 'string',
             'price' => 'required|numeric',
-            'quantity' => 'required|numeric'
+            'quantity' => 'required|numeric',
+            'payment_account_id' => 'nullable|numeric'
         ];
     }
 }
