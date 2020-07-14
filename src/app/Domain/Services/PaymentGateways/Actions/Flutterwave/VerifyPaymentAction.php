@@ -10,9 +10,7 @@ class VerifyPaymentAction
 
     public function __construct()
     {
-        $this->endpoint = app()->environment('production') 
-            ? "https://api.ravepay.co/flwv3-pug/getpaidx/api/v2/verify"
-            : "https://ravesandboxapi.flutterwave.com/flwv3-pug/getpaidx/api/v2/verify";
+        $this->endpoint = config('flutterwave.endpoint'). "/flwv3-pug/getpaidx/api/v2/verify";
     }
 
     public function execute($data)
