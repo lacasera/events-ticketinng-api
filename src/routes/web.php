@@ -9,7 +9,3 @@ Route::get('/', function () {
         'msg' => 'api is healthy'
     ]);
 });
-
-Route::get('/test', function(EventService $eventService){
-    return $eventService->all();
-});
