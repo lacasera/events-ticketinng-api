@@ -2,8 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Models\Event;
-use App\Models\User;
+use App\Models\{Event, User};
 use Faker\Generator as Faker;
 
 $factory->define(Event::class, function (Faker $faker) {

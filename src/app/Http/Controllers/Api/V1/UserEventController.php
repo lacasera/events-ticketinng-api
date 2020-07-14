@@ -20,7 +20,7 @@ class UserEventController extends Controller
     public function index()
     {
         return response()->json([
-            'data' => Event::forUser()->orderBy('created_at', 'desc')->get()
+            'data' => Event::forUser(auth()->id())->orderBy('created_at', 'desc')->get()
         ], 200);
     }
 

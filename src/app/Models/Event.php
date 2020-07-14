@@ -41,9 +41,9 @@ class Event extends BaseModel
         return $this->created_at->diffForHumans();
     }
 
-    public function scopeForUser(Builder $query)
+    public function scopeForUser(Builder $query, $user_id)
     {
-        return $query->where('user_id', '', auth()->id());
+        return $query->where('user_id', '=', $user_id);
     }
 
     public function tickets()

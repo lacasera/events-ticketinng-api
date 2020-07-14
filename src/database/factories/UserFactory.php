@@ -21,6 +21,8 @@ $factory->define(User::class, function (Faker $faker) {
     return [
         'phone' => $faker->unique()->phoneNumber,
         'email' => $faker->unique()->safeEmail,
+        'device_type' => collect(['android', 'ios'])->random(),
+        'device_token' => Str::random('80'),
         'email_verified_at' => now(),
         'password' => 'password',
         'remember_token' => Str::random(10),
